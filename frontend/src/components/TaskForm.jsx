@@ -41,17 +41,17 @@ const TaskForm = ({ tasks, setTasks, editingTask, setEditingTask }) => {
 
   return (
     <form onSubmit={handleSubmit} className="bg-white p-6 shadow-md rounded mb-6">
-      <h1 className="text-2xl font-bold mb-4">{editingTask ? 'Your Form Name: Edit Operation' : 'Your Form Name: Create Operation'}</h1>
+      <h1 className="text-2xl font-bold mb-4">{editingTask ? 'Edit in cart: Edit Operation' : 'Add to cart: Edit operation'}</h1>
       <input
         type="text"
-        placeholder="Title"
+        placeholder="Item name"
         value={formData.title}
         onChange={(e) => setFormData({ ...formData, title: e.target.value })}
         className="w-full mb-4 p-2 border rounded"
       />
       <input
-        type="text"
-        placeholder="Description"
+        type="number"
+        placeholder="Amount"
         value={formData.description}
         onChange={(e) => setFormData({ ...formData, description: e.target.value })}
         className="w-full mb-4 p-2 border rounded"
