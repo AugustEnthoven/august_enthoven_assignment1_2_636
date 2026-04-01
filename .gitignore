@@ -8,6 +8,9 @@
 # testing
 /coverage
 
+# cache
+/frontend/node_modules/.cache
+
 # production
 /build
 
