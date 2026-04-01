@@ -11,13 +11,17 @@ const Tasks = () => {
 
   useEffect(() => {
     const fetchTasks = async () => {
+      if(!user || !user.token){
+        console.log("Waiting for login...");
+        return;
+      }
       try {
         const response = await axiosInstance.get('/api/tasks', {
           headers: { Authorization: `Bearer ${user.token}` },
         });
         setTasks(response.data);
       } catch (error) {
-        alert('Failed to fetch tasks.');
+        alert('Failed to fetch tasks. ' + error);
       }
     };
 
