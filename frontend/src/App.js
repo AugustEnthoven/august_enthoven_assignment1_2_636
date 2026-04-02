@@ -5,6 +5,7 @@ import Register from './pages/Register';
 import Profile from './pages/Profile';
 import Tasks from './pages/Tasks';
 import Search from './pages/Search';
+import Home from './pages/Home';
 
 function App() {
   return (
@@ -16,6 +17,7 @@ function App() {
         <Route path="/profile" element={<Profile />} />
         <Route path="/tasks" element={<Tasks />} />
         <Route path ="/search" element={<Search />} />
+        <Route path ="/home" element={<Home />} />
       </Routes>
     </Router>
   );
