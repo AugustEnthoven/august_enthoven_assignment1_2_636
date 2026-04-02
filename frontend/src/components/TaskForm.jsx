@@ -51,12 +51,14 @@ const TaskForm = ({ tasks, setTasks, editingTask, setEditingTask }) => {
       />
       <input
         type="number"
+        placeholder="Price"
         value={formData.price}
         onChange={(e) => setFormData({ ...formData,price: e.target.value })}
         className="w-full mb-4 p-2 border rounded"
       />
         <input
             type="text"
+            placeholder="Image URL"
             value={formData.url}
             onChange={(e) => setFormData({ ...formData,url: e.target.value })}
             className="w-full mb-4 p-2 border rounded"
