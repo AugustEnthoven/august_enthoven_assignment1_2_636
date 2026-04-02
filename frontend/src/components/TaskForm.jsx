@@ -4,17 +4,17 @@ import axiosInstance from '../axiosConfig';
 
 const TaskForm = ({ tasks, setTasks, editingTask, setEditingTask }) => {
   const { user } = useAuth();
-  const [formData, setFormData] = useState({ title: '', description: '', deadline: '' });
+  const [formData, setFormData] = useState({name: '', price: '',url: '' });
 
   useEffect(() => {
     if (editingTask) {
       setFormData({
-        title: editingTask.title,
-        description: editingTask.description,
-        deadline: editingTask.deadline,
+        name: editingTask.name,
+        price: editingTask.price,
+        url: editingTask.url,
       });
     } else {
-      setFormData({ title: '', description: '', deadline: '' });
+      setFormData({name: '', price: '',url: '' });
     }
   }, [editingTask]);
 
@@ -33,7 +33,7 @@ const TaskForm = ({ tasks, setTasks, editingTask, setEditingTask }) => {
         setTasks([...tasks, response.data]);
       }
       setEditingTask(null);
-      setFormData({ title: '', description: '', deadline: '' });
+      setFormData({name: '', price: '',url: '' });
     } catch (error) {
       alert('Failed to save task.');
     }
@@ -45,23 +45,22 @@ const TaskForm = ({ tasks, setTasks, editingTask, setEditingTask }) => {
       <input
         type="text"
         placeholder="Item name"
-        value={formData.title}
-        onChange={(e) => setFormData({ ...formData, title: e.target.value })}
+        value={formData.name}
+        onChange={(e) => setFormData({ ...formData,name: e.target.value })}
         className="w-full mb-4 p-2 border rounded"
       />
       <input
         type="number"
-        placeholder="Amount"
-        value={formData.description}
-        onChange={(e) => setFormData({ ...formData, description: e.target.value })}
+        value={formData.price}
+        onChange={(e) => setFormData({ ...formData,price: e.target.value })}
         className="w-full mb-4 p-2 border rounded"
       />
-      <input
-        type="date"
-        value={formData.deadline}
-        onChange={(e) => setFormData({ ...formData, deadline: e.target.value })}
-        className="w-full mb-4 p-2 border rounded"
-      />
+        <input
+            type="text"
+            value={formData.url}
+            onChange={(e) => setFormData({ ...formData,url: e.target.value })}
+            className="w-full mb-4 p-2 border rounded"
+        />
       <button type="submit" className="w-full bg-blue-600 text-white p-2 rounded">
         {editingTask ? 'Update Button' : 'Create Button'}
       </button>
