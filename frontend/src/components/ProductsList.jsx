@@ -51,6 +51,7 @@ export default function Products() {
             </li>
             <img
                 src = {product.url}
+                alt = {"Product on the toy store"}
                 width={250}
                 height={250}
                 style = {{borderRadius: 40}}
