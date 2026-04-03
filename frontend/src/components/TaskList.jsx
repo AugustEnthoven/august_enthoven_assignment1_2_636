@@ -24,6 +24,7 @@ const TaskList = ({ tasks, setTasks, setEditingTask }) => {
           <p>${task.price}</p>
           <img
               src = {task.url}
+              alt = {"Image of a product"}
               width={250}
               height={250}
               style = {{borderRadius: 40}}

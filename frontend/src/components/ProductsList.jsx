@@ -36,7 +36,7 @@ export default function Products() {
 
     const handleClick = async (product) =>
     {
-        const response = axiosInstance.post('/api/tasks', product, {
+        axiosInstance.post('/api/tasks', product, {
             headers: {Authorization: `Bearer ${user.token}`},
         });
     }
