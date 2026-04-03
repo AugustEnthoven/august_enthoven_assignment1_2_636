@@ -1,5 +1,6 @@
 import { useAuth } from '../context/AuthContext';
 import axiosInstance from '../axiosConfig';
+import React from "react";
 
 const TaskList = ({ tasks, setTasks, setEditingTask }) => {
   const { user } = useAuth();
@@ -19,9 +20,14 @@ const TaskList = ({ tasks, setTasks, setEditingTask }) => {
     <div>
       {tasks.map((task) => (
         <div key={task._id} className="bg-gray-100 p-4 mb-4 rounded shadow">
-          <h2 className="font-bold">{task.title}</h2>
-          <p>{task.description}</p>
-          <p className="text-sm text-gray-500">Deadline: {new Date(task.deadline).toLocaleDateString()}</p>
+          <h2 className="font-bold">{task.name}</h2>
+          <p>${task.price}</p>
+          <img
+              src = {task.url}
+              width={250}
+              height={250}
+              style = {{borderRadius: 40}}
+          />
           <div className="mt-2">
             <button
               onClick={() => setEditingTask(task)}

@@ -1,4 +1,7 @@
 import React from "react";
+import axiosInstance from "../axiosConfig";
+import { useAuth } from '../context/AuthContext';
+
 
 const products = [
     {
@@ -27,7 +30,17 @@ const products = [
     },
 ];
 
+
 export default function Products() {
+    const { user } = useAuth();
+
+    const handleClick = async (product) =>
+    {
+        const response = axiosInstance.post('/api/tasks', product, {
+            headers: {Authorization: `Bearer ${user.token}`},
+        });
+    }
+
     const products_list = products.map(product =>
         <div className="bg-gray-100 p-4 mb-4 rounded shadow">
             <li>
@@ -42,11 +55,12 @@ export default function Products() {
                 height={250}
                 style = {{borderRadius: 40}}
                 />
-            <button className="mr-2 bg-emerald-600 text-white px-4 py-2 rounded">
+            <button onClick={() => handleClick(product)} className="mr-2 bg-emerald-600 text-white px-4 py-2 rounded">
                 + Add to cart
             </button>
         </div>
     )
+
 
     return <ul>{products_list}</ul>;
 }
