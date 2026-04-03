@@ -20,9 +20,8 @@ describe('addTask Function Test', () => {
         // Mock request data
         const req = {
             user: { id: new mongoose.Types.ObjectId() },
-            body: { name: "New item", price: 10, url: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse1.mm.bing.net%2Fth%2Fid%2FOIP.zVXFDksXtdGlk6unArbHXwHaD4%3Fpid%3DApi&f=1&ipt=c03a6b184a637788eafd5cf351770ddc580891c71b6d535f48dbef2a3e375075&ipo=images" }
+            body: { name: "New item", price: "10", url: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse1.mm.bing.net%2Fth%2Fid%2FOIP.zVXFDksXtdGlk6unArbHXwHaD4%3Fpid%3DApi&f=1&ipt=c03a6b184a637788eafd5cf351770ddc580891c71b6d535f48dbef2a3e375075&ipo=images" }
         };
-
         // Mock task that would be created
         const createdTask = { _id: new mongoose.Types.ObjectId(), ...req.body, userId: req.user.id };
 
@@ -107,7 +106,7 @@ describe('Update Function Test', () => {
         await updateTask(req, res);
 
         // Assertions
-        expect(existingTask.name).to.equal("New Task");
+        expect(existingTask.name).to.equal("New Item");
         expect(res.status.called).to.be.false; // No error status should be set
         expect(res.json.calledOnce).to.be.true;
 
