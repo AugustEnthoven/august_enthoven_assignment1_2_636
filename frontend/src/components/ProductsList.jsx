@@ -36,7 +36,7 @@ export default function Products() {
 
     const handleClick = async (product) =>
     {
-        const response = axiosInstance.post('/api/tasks', product, {
+        axiosInstance.post('/api/tasks', product, {
             headers: {Authorization: `Bearer ${user.token}`},
         });
     }
@@ -51,6 +51,7 @@ export default function Products() {
             </li>
             <img
                 src = {product.url}
+                alt = {"Product on the toy store"}
                 width={250}
                 height={250}
                 style = {{borderRadius: 40}}

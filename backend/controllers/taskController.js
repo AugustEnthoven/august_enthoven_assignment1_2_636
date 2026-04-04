@@ -15,6 +15,7 @@ const addTask = async (req, res) => {
       name,
       price,
       url,
+      userId: req.user.id,
     });
     res.status(201).json(task);
   } catch (error) {
