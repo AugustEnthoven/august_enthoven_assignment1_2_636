@@ -17,4 +17,4 @@ This project includes a .yml file in .github/workflows/ci.yml. This ensures that
 
 **To Start the Project**
 
-Run ``npm run dev`` in the root folder of the github repository.
+Run ``npm run dev`` in the root folder of the github repository. This will open the application in your browser at ``http://localhost:3000``.
